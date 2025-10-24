@@ -16,6 +16,9 @@ Route::get('/admin/products', [AdminProductController::class, 'index'])->name("a
 Route::post('/admin/products/store',[AdminProductController::class, 'store'])->name("admin.product.store");
 Route::delete('/admin/products/{id}/delelte',[AdminProductController::class, 'delete'])->name("admin.product.delete");
 
+Route::get('/admin/products/{id}/edit',[AdminProductController::class, 'edit'])->name("admin.product.edit");
+Route::put('/admin/products/{id}/update',[AdminProductController::class, 'update'])->name("admin.product.update");
+
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
 Route::get('/about', [HomeController::class, 'about'])->name("home.about");

@@ -74,9 +74,9 @@
                     <td>{{ $product->getId() }}</td>
                     <td>{{ $product->getName() }}</td>
                     <td>
-                        <button class="btn btn-primary">
+                        <a href="{{ route('admin.product.edit', ['id' => $product->getId()]) }}" class="btn btn-primary">
                             <i class="bi bi-pencil"></i>
-                        </button>
+                        </a>
                     </td>
                     <td>
                         <form action="{{ route('admin.product.delete',$product ->getId()) }}" method="POST">
