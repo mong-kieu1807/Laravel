@@ -2,8 +2,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+
 class Product extends Model
 {
+    // Quan hệ nhiều-nhiều với Tag thông qua bảng trung gian `product_tag`
+    public function tags(): BelongsToMany
+    {
+        return $this->belongsToMany(Tag::class);
+    }
     public static function validate($request)
     {
         $request->validate([
