@@ -11,9 +11,10 @@ class ProductController extends Controller
         $ViewData = [];
         $ViewData['title'] = "Products - Online Shop";
         $ViewData['subtitle'] = "Danh sách sản phẩm";
+        $products = Product::with( 'tags')->latest()->paginate(10);
         $ViewData['products'] = Product::all();
         // Truyền biến $products sang view 'products.index'
-        return view('products.index')->with("ViewData", $ViewData);
+        return view('products.index', compact('products'))->with("ViewData", $ViewData);
     }
 
     public function show($id)

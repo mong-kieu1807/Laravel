@@ -12,6 +12,12 @@
                 <h5 class="card-title">
                     {{ $viewData["product"]->getName() }} (${{$viewData["product"]->getPrice() }})
                 </h5>
+                <p class="card-text">
+                    <strong>Tags:</strong>
+                    @foreach($viewData["product"]->tags as $tag)
+                        <span class="badge bg-secondary">{{ $tag->name }}</span>
+                    @endforeach
+                </p>
                 <p class="card-text">{{ $viewData["product"]->getDescription() }}</p>
                 <p class="card-text"><small class="text-muted">Add to Cart</small></p>
             </div>
